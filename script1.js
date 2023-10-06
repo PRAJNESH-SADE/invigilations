@@ -2,6 +2,7 @@ const admin = require('firebase-admin');
 const express = require('express');
 const bodyParser = require('body-parser');
 const hashPassword = require('password-hash');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +15,11 @@ admin.initializeApp({
 
 // Initialize Firestore
 const db = admin.firestore();
-
+app.use('/css', (req, res, next) => {
+  res.type('text/css');
+  next();
+}, express.static(path.join(__dirname, './css')));
+app.use('/public', express.static(path.join(__dirname, './public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('.'));
