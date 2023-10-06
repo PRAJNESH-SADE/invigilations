@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sidebar Menu </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(168, 243, 248);
+            display: flex;
+        }
+        
+        .left-menu {
+            background: white;
+            position: relative;
+            width: 4.5rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all .4s ease;
+        }
+        
+        .left-menu:hover {
+            width: 13rem;
+        }
+        
+        .left-menu ul li a {
+            display: flex;
+        }
+        
+        .logo {
+            width: 80px;
+            position: relative;
+            top: 1rem;
+            left: 0.5rem;
+            display: flex;
+            margin: 10px 0 0 0px;
+            justify-content: center;
+            align-items: center;
+            margin-left: -45px;
+        }
+        
+        .logo img {
+            width: 100%;
+            z-index: 100;
+            position: absolute;
+        
+        }
+        
+        .logo span {
+            font-weight: bold;
+            
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        
+        .logo a {
+            position: relative;
+            left: 180px;
+            color: #32bac4;
+            font-size: 18px;
+            display: table;
+            text-align: left;
+            width: 300px;
+            text-decoration: none;
+            padding: 10px;
+            font-family: 'Poppins', 'sans-serif';
+        }
+        
+        .left-menu ul {
+            margin-top: 2rem;
+            margin-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        ul li {
+            font-family: 'Poppins', sans-serif;
+            list-style: none;
+            margin-bottom: 1rem;
+            align-items: center;
+            transition: all .3s linear;
+        }
+        
+        ul li a {
+            padding: 0.5rem;
+            color: #30dbd3;
+            text-decoration: none;
+        }
+        
+        ul li a i {
+            text-decoration: none;
+            color: #3cb9af;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all .3s linear;
+            margin-right: 1.2rem;
+        }
+        
+        .sidebar-item i {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+        
+        #settings {
+            position: absolute;
+            bottom: 1rem;
+        }
+        
+        .left-menu ul li:hover {
+            transform: translateX(.4rem);
+            transition: all .4s linear;
+        }
+        
+        .left-menu ul li:hover .fa-solid,
+        .left-menu ul li:hover a {
+            font-weight: bold;
+            color: rgba(98, 238, 219, 0.945);
+        }
+    
+    /* Reset some default styles */
+body, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Improve readability */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+}
+
+/* Style the header */
+header {
+    background-color: #3498db;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Style the main content */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Style the interactive cards */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    min-width: 280px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    color: #777;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}</style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left-menu">
+            <div class="logo">
+                <img src="./logo.png" alt="">
+                <span><a href="">Dashboard</a></span>
+            </div>
+            <ul>
+                <li class="sidebar-item"><a class="sidebar-link" href="#"><i class="fa-solid fa-file-pen"></i>Host Exam</a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#"><i class="fa-solid fa-user"></i>User Details</a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#"><i class="fa-solid fa-calendar-days"></i>Exam Timetable</a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#"><i class="fa-solid fa-user-slash"></i>Absentee</a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#"><i class="fa-solid fa-message"></i>Requests</a></li>
+                <li class="sidebar-item" id="settings"><a class="sidebar-link" href="#"><i class="fa-solid fa-gear"></i>Settings </a><li>
+            </ul>
+        </div>
+        <main>
+            <div class="card1">
+                <h1>Exam Invigilator Form</h1>
+                <form action="/submit-invigilation-form" method="POST">
+                    <label for="room_number">Room Number:</label>
+                    <input type="text" id="room_number" name="room_number" required><br><br>
+
+                    <label for="pad_number">Pad Number:</label>
+                    <input type="text" id="pad_number" name="pad_number" required><br><br>
+
+                    <label for="exam_date">Date of Examination:</label>
+                    <input type="date" id="exam_date" name="exam_date" required><br><br>
+
+                    <label for="exam_date">time of Examination:</label>
+                    <div>
+                        <input type="time" id="starttime" name="start_time" required><br><br>
+                        <p>to</p>
+                        <input type="time" name="end_time" id="endtime" required><br><br>
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="card2">
+                    <form>
+                        <form id="department-form">
+                        <h2>Manage Information</h2>
+                    
+                        <!-- Department Information -->
+                        <h3>Department Information</h3>
+                        <label for="department-name">Department Name:</label>
+                        <input type="text" id="department-name" name="department-name">
+                        <br>
+                        <input type="submit" value="Add Department">
+                        <!-- <input type="button" value="Update Department"> -->
+                        <input type="button" value="Delete Department">
+                        <br>
+                        </form>
+    
+                        <form id="course-form">
+                        <!-- Course Information -->
+                        <h3>Course Information</h3>
+                        <label for="course-name">Course Name:</label>
+                        <input type="text" id="course-name" name="course-name">
+                        <br>
+                        <label for="course-code">Course Code:</label>
+                        <input type="text" id="course-code" name="course-code">
+                        <br>
+                        <input type="submit" value="Add Course">
+                        <!-- <input type="button" value="Update Course"> -->
+                        <input type="button" value="Delete Course">
+                        <br>
+                        </form>
+                    
+                        <!-- Faculty Information -->
+                        <h3>Faculty Information</h3>
+                        <label for="faculty-name">Faculty Name:</label>
+                        <input type="text" id="faculty-name" name="faculty-name">
+                        <br>
+                        <label for="faculty-id">Faculty ID:</label>
+                        <input type="text" id="faculty-id" name="faculty-id">
+                        <br>
+                        <label for="faculty-designation">Faculty Designation:</label>
+                        <input type="text" id="faculty-designation" name="faculty-designation"><br>
+                        <input type="submit" value="Add Faculty">
+                        <!-- <input type="button" value="Update Faculty"> -->
+                        <input type="button" value="Delete Faculty">
+                        <br>
+                    </form>                
+                </div>
+                <div class="card"></div>
+                <div class="card">
+                </div>
+            </main>
+            <!-- Right Content Goes here -->
+            <div class="right-content"></div>
+        </div>
+    <script>
+      document.getElementById("department-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        
+        // Get the department name input value
+        var departmentName = document.getElementById("department-name").value;
+    
+        // Add data to Firestore
+        db.collection("departments").add({
+          name: departmentName
+        })
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          // Clear the input field after successful submission
+          document.getElementById("department-name").value = "";
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
+      });
+    
+      //course
+      document.getElementById("course-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+    
+        // Get the course name and code input values
+        var courseName = document.getElementById("course-name").value;
+        var courseCode = document.getElementById("course-code").value;
+    
+        // Reference to Firestore collection
+        var coursesCollection = db.collection("courses");
+    
+        // Add data to Firestore
+        coursesCollection.add({
+          name: courseName,
+          code: courseCode
+        })
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          // Clear the input fields after successful submission
+          document.getElementById("course-name").value = "";
+          document.getElementById("course-code").value = "";
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
+      });
+    
+    //   // Update Course
+    //   document.getElementById("update-course").addEventListener("click", function () {
+    //     // Add code here to update a course in Firestore based on your requirements.
+    //   });
+    
+      // Delete Course
+      document.getElementById("delete-course").addEventListener("click", function () {
+        // Add code here to delete a course from Firestore based on your requirements.
+      });
+    
+    
+    </script>
+    </body>
+</html>

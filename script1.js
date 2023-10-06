@@ -36,6 +36,29 @@ app.get('/adminsignin', (req, res) => {
   res.sendFile(__dirname + "/admin_login/index.html");
 });
 
+app.get('/admindashboard', (req, res) => {
+  res.sendFile(__dirname + "/admin/index.html");
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(__dirname + "/dashboard.html");
+});
+
+app.get('/inchargelogin', (req, res) => {
+  res.sendFile(__dirname + "/incharge/index.html");
+});
+
+app.get('/facultylogin', (req, res) => {
+  res.sendFile(__dirname + "/faculty/index.html");
+});
+
+app.get('/inchargedashboard', (req, res) => {
+  res.sendFile(__dirname + "/incharge/dashboard.html");
+});
+
+app.get('/facultydashboard', (req, res) => {
+  res.sendFile(__dirname + "/faculty/dashboard.html");
+});
 
 // Registration endpoint
 app.post('/adminsignup', (req, res) => {
@@ -104,6 +127,33 @@ app.post('/adminsignup', (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'An error occurred' });
     }
+});
+
+// Add this route to your Express app
+app.post('/submit-invigilation-form', async (req, res) => {
+  try {
+    // Extract form data from the request
+    const { room_number, pad_number, exam_date, start_time, end_time } = req.body;
+
+    // Create an object to represent the invigilation form data
+    const invigilationData = {
+      room_number,
+      pad_number,
+      exam_date,
+      start_time,
+      end_time,
+      // Add other form fields as needed
+    };
+
+    // Store the invigilation form data in Firestore
+    const result = await db.collection('invigilationForms').add(invigilationData);
+
+    // Respond with a success message or other appropriate response
+    res.status(201).json({ message: 'Invigilation form submitted successfully', id: result.id });
+  } catch (error) {
+    console.error('Error submitting invigilation form:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 
