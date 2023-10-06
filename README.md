@@ -37,20 +37,20 @@ User Interface:
 Conclusion:
 
 # Features
-    Used POST method and hashing
-    User Authentication and Authorization
-    Database Design
-    Automatic Random Allotment Algorithm
-    Email Notifications
-    User Interface
-    Sign Up
-    Sign In
-    Session management system
-    Homepage
-    Edit account
-    Delete account
-    Remember me
-    Two-step verification
+   • Used POST method and hashing
+   • User Authentication and Authorization
+   • Database Design
+   • Automatic Random Allotment Algorithm
+   • Email Notifications
+   • User Interface
+   • Sign Up
+   • Sign In
+   • Session management system
+   • Homepage
+   • Edit account
+   • Delete account
+   • Remember me
+   • Two-step verification
     
 
 ## Pre-requisites
