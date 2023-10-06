@@ -12,31 +12,7 @@ A simple demo chat app built on [Node.js](https://nodejs.org/), [Express.js](htt
 # What is this project?
 The proposed Invigilation Duty and Absentee Statement Management System addresses the challenges associated with invigilation duty allocation, adjustment, and absentee statement collection in educational institutions. This comprehensive solution enhances the efficiency of the examination process, promotes transparency, and simplifies the management of absentees, both room-wise and course-wise.
 
-
-
-•	Create tables for users, departments, courses, faculty, rooms, invigilation schedules, and absentee statements.
-•	Track invigilation counts and last invigilation dates for faculty members.
-•	Store absentee information, including room and course details.
-
-•	Assign invigilation duties to faculty members based on room availability.
-•	Ensure that faculty members do not exceed their maximum allowed invigilation’s for the academic year.
-•	Reset invigilation counts and last invigilation dates at the beginning of each academic year.
-
-•	Integrate email notifications to inform faculty members of their assigned invigilation duties.
-•	Send notifications for invigilation duty swap/adjustment requests.
-•	Include options to accept or reject requests directly from the email.
-Request and Acceptance Process:
-•	Allow faculty members to initiate and manage swap/adjustment requests.
-•	Update the invigilation schedule and send confirmation emails when requests are accepted.
-Absentee Statement Collection:
-•	Allow Admin and Department Incharge to collect absentee statements room-wise.
-•	Provide functionality for Admin to generate consolidated absentee statements course-wise.
-User Interface:
-•	Design user-friendly interfaces for Admin, Department Incharge, and Faculty.
-•	Provide dashboards for managing invigilation schedules, faculty information, adjustment requests, and absentee statements.
-Conclusion:
-
-# Features
+# stg
    • Used POST method and hashing
    • User Authentication and Authorization
    • Database Design
