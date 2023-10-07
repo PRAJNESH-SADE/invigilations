@@ -2,7 +2,7 @@
 
 (A well integrated platform for automating the invigilation and recoring absentee statements)
 
-A simple demo chat app built on [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/) and [Firebase.io](https://firebase.io/).
+A simple demo app built on [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/) and [Firebase.io](https://firebase.io/).
 
 ## Demo
 
