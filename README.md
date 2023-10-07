@@ -13,21 +13,21 @@ A simple demo app built on [Node.js](https://nodejs.org/), [Express.js](https://
 The proposed Invigilation Duty and Absentee Statement Management System addresses the challenges associated with invigilation duty allocation, adjustment, and absentee statement collection in educational institutions. This comprehensive solution enhances the efficiency of the examination process, promotes transparency, and simplifies the management of absentees, both room-wise and course-wise.
 
 # stg
-   • Used POST method and hashing
-   • User Authentication and Authorization
-   • Database Design
-   • Automatic Random Allotment Algorithm
-   • Email Notifications
-   • User Interface
-   • Sign Up
-   • Sign In
-   • Session management system
-   • Homepage
-   • Edit account
-   • Delete account
-   • Remember me
-   • Two-step verification
-    
+      . Used POST method and hashing
+      • User Authentication and Authorization
+      • Database Design
+      • Automatic Random Allotment Algorithm
+      • Email Notifications
+      • User Interface
+      • Sign Up
+      • Sign In
+      • Session management system
+      • Homepage
+      • Edit account
+      • Delete acc•ount
+      • Remember me
+      • Two-step verification
+       
 
 ## Pre-requisites
 
