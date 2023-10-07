@@ -165,11 +165,9 @@ header {
 /* Style the main content */
 main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
 }
 
 /* Style the interactive cards */
@@ -202,40 +200,86 @@ main {
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-        /* ... Your existing CSS ... */
-
-/* Center the card in the main content */
-.center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    max-width: 600px;
-    width: 90%;
-    text-align: center;
-   
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
     
-}
-
-/* ... Your existing CSS ... */
-
-
-        .card h1 {
+        /* Main container */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        /* Form container */
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px; /* Adjust the maximum width as needed */
+        }
+    
+        .form-container h1 {
+            margin-bottom: 10px;
+            color: #333;
             text-align: center;
         }
-
-        .form-group {
-            margin-bottom: 20px;
+    
+        /* Form elements */
+        .form-container label {
+            font-weight: bold;
         }
-</style>
+    
+        .form-container input[type="text"],
+        .form-container input[type="date"],
+        .form-container input[type="email"],
+        .form-container input[type="time"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    
+        .form-container input[type="submit"],
+        .form-container input[type="button"] {
+            background-color: #32bac4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            box-shadow: 2px 4px 5px rgb(168, 165, 165);
+        }
+    
+        .form-container input[type="submit"]:hover,
+        .form-container input[type="button"]:hover {
+            background-color: #2a9ea7;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-container {
+                width: 90%;
+            }
+        }</style>
 </head>
 
 <body>
@@ -258,41 +302,47 @@ main {
             </ul>
         </div>
         <main>
-            <div class="center-container">
-    <div class="card">
-        <h1>Exam Invigilator Form</h1>
-        <form action="/submit-invigilation-form" method="POST">
-            <div class="form-group">
-                
-                <label for="room_number">Room Number:</label>
-                <input type="text" class="form-control" id="room_number" name="room_number" required>
-            </div>
-
-            <div class="form-group">
-                <label for="pad_number">Pad Number:</label>
-                <input type="text" class="form-control" id="pad_number" name="pad_number" required>
-            </div>
-
-            <div class="form-group">
-                <label for="exam_date">Date of Examination:</label>
-                <input type="date" class="form-control" id="exam_date" name="exam_date" required>
-            </div>
-
-            <div class="form-group">
-                <label for="start_time">Start Time:</label>
-                <input type="time" class="form-control" id="start_time" name="start_time" required>
-            </div>
-
-            <div class="form-group">
-                <label for="end_time">End Time:</label>
-                <input type="time" class="form-control" id="end_time" name="end_time" required>
-            </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div>
+    <div class="main-container">
+        <form id="department-form" action="/facultysubmit" class="form-container" method="post">
+            <h1>Manage Information</h1>
+        
+            <!-- Department Information -->
+            <h2>Department Information</h2>
+            <label for="departmentName">Department Name:</label>
+            <input type="text" id="department-name" name="departmentName">
+            <br>
+            
+            <br>
+        
+            <!-- Course Information -->
+            <h2>Course Information</h2>
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="course-name" name="courseName">
+            <br>
+            <label for="courseId">Course Code:</label>
+            <input type="text" id="course-code" name="courseId">
+            <br>
+            
+            <br>
+        
+            <!-- Faculty Information -->
+            <h2>Faculty Information</h2>
+            <label for="facultyName">Faculty Name:</label>
+            <input type="text" id="faculty-name" name="facultyName">
+            <br>
+            <label for="facultyId">Faculty ID:</label>
+            <input type="text" id="faculty-id" name="facultyId">
+            <br>
+            <label for="facultyMail">Faculty Email:</label>
+            <br>
+            <input type="email" id="faculty-mail" name="facultyMail">
+            <br>
+            <label for="facultyDesignation">Faculty Designation:</label>
+            <input type="text" id="faculty-designation" name="facultyDesignation"><br>
+             
+            <input type="submit" value="submit">
+            <br>
+        </form> 
     </div>
             </main>
             <!-- Right Content Goes here -->

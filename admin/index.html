@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sidebar Menu </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(168, 243, 248);
+            display: flex;
+        }
+        
+        .left-menu {
+            background: white;
+            position: relative;
+            width: 4.5rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all .4s ease;
+        }
+        
+        .left-menu:hover {
+            width: 13rem;
+        }
+        
+        .left-menu ul li a {
+            display: flex;
+        }
+        
+        .logo {
+            width: 80px;
+            position: relative;
+            top: 1rem;
+            left: 0.5rem;
+            display: flex;
+            margin: 10px 0 0 0px;
+            justify-content: center;
+            align-items: center;
+            margin-left: -45px;
+        }
+        
+        .logo img {
+            width: 100%;
+            z-index: 100;
+            position: absolute;
+        
+        }
+        
+        .logo span {
+            font-weight: bold;
+            
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        
+        .logo a {
+            position: relative;
+            left: 180px;
+            color: #32bac4;
+            font-size: 18px;
+            display: table;
+            text-align: left;
+            width: 300px;
+            text-decoration: none;
+            padding: 10px;
+            font-family: 'Poppins', 'sans-serif';
+        }
+        
+        .left-menu ul {
+            margin-top: 2rem;
+            margin-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        ul li {
+            font-family: 'Poppins', sans-serif;
+            list-style: none;
+            margin-bottom: 1rem;
+            align-items: center;
+            transition: all .3s linear;
+        }
+        
+        ul li a {
+            padding: 0.5rem;
+            color: #30dbd3;
+            text-decoration: none;
+        }
+        
+        ul li a i {
+            text-decoration: none;
+            color: #3cb9af;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all .3s linear;
+            margin-right: 1.2rem;
+        }
+        
+        .sidebar-item i {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+        
+        #settings {
+            position: absolute;
+            bottom: 1rem;
+        }
+        
+        .left-menu ul li:hover {
+            transform: translateX(.4rem);
+            transition: all .4s linear;
+        }
+        
+        .left-menu ul li:hover .fa-solid,
+        .left-menu ul li:hover a {
+            font-weight: bold;
+            color: rgba(98, 238, 219, 0.945);
+        }
+    
+    /* Reset some default styles */
+body, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Improve readability */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+}
+
+/* Style the header */
+header {
+    background-color: #3498db;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Style the main content */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Style the interactive cards */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    min-width: 280px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    color: #777;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}</style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left-menu">
+            <div class="logo">
+                <img src="./logo.png" alt="">
+                <span><a href="">Dashboard</a></span>
+            </div>
+            <ul>
+                <li class="sidebar-item"><a class="sidebar-link" href="/admindashboard1"><i class="fa-solid fa-file-pen"></i>Plan Exam</a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="/admindashboard2"><i class="fa-solid fa-user"></i>User Details</a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="/admindashboard3"><i class="fa-solid fa-calendar-days"></i>Exam Timetable</a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="/admindashboard4"><i class="fa-solid fa-user-slash"></i>Absentee</a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="/admindashboard5"><i class="fa-solid fa-message"></i>Requests</a></li>
+                <li class="sidebar-item" id="settings"><a class="sidebar-link" href="#"><i class="fa-solid fa-gear"></i>Settings </a></li>
+            </ul>
+        </div>
+        <main>
+            <section class="card">
+                <h2>Plan Exam</h2>
+                <p>Manage and schedule exams with ease. Ensure smooth exam administration.</p>
+                <button id="assignFacultiesButton">Assign Faculties to Halls</button>
+            </section>
+            <section class="card">
+                <h2>User Details</h2>
+                <p>Effortlessly manage user profiles and permissions for a seamless experience.</p>
+            </section>
+            <section class="card">
+                <h2>Exam Timetable</h2>
+                <p>Access and update the exam timetable conveniently. Stay organized.</p>
+            </section>
+            <section class="card">
+                <h2>Absentee Statement</h2>
+                <p>Collect, review, and manage absentee statements efficiently. Enhance record-keeping.</p>
+            </section>
+            
+            </main>
+            <!-- Right Content Goes here -->
+            <div class="right-content"></div>
+        </div>
+    </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+<script>
+  // Initialize Firebase with your project's configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBriOcX3-lSMsw6IEFRHStIeHX-9LRnmB4",
+  authDomain: "webathon-76ab9.firebaseapp.com",
+  projectId: "webathon-76ab9",
+  storageBucket: "webathon-76ab9.appspot.com",
+  messagingSenderId: "97446231330",
+  appId: "1:97446231330:web:0a90f15eacf840ee2eb97b",
+  measurementId: "G-R2DZQHE52Y"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  const db = firebase.firestore();
+</script>
+
+    <script>
+    
+    // Define the function to assign a faculty to an exam hall
+async function assignFacultyToHall(faculty, examHall) {
+    const facultyId = faculty.facultyId; // Assuming facultyId is an attribute within the faculty document
+
+    // Query Firestore to find the faculty document
+    const facultyQuerySnapshot = await db.collection('faculties').where('facultyId', '==', facultyId).get();
+
+    if (!facultyQuerySnapshot.empty) {
+        // Loop through the QuerySnapshot (there should be only one result)
+        facultyQuerySnapshot.forEach(async (doc) => {
+            const facultyData = doc.data();
+            console.log("6666666666666666666666666666666666666666666666",facultyData);
+            console.log("kkkkk",facultyData.assigned);
+            if (facultyData.assigned!="yes") {
+                // Assign the faculty to the exam hall and update the assigned count
+                examHall.assignedFaculty = faculty.facultyName;
+                facultyData.assigned = "yes";
+                console.log("lnnblju");
+                const databaseRef = db.ref('https://console.firebase.google.com/project/webathon-76ab9/firestore/data/'); // Replace with the path to your database node
+
+                // Update Firestore with the assignment
+                await db.collection('invigilationForms').doc(examHall.docId).update({
+                    assignedFaculty: faculty.facultyName,
+                });
+
+                console.log(`Assigned ${faculty.facultyName} to Hall ${examHall.room_number}`);
+            }
+        });
+    }
+} 
+
+            // Check if the faculty's assignment count is within the limit
+      
+      const assignFacultiesButton = document.getElementById('assignFacultiesButton');
+        assignFacultiesButton.addEventListener('click', () => {
+            // Perform the faculty assignment when the button is clicked
+            assignFacultiesToHalls();
+        });
+    
+    async function getExamHallsFromFirestore() {
+        try {
+          const examHallsSnapshot = await db.collection('invigilationForms').get();
+          const examHalls = [];
+      
+          examHallsSnapshot.forEach((doc) => {
+            const hallData = doc.data();
+            // Assuming your Firestore documents have the fields: room_number, pad_number, exam_date, start_time, end_time
+            const hall = {
+              room_number: hallData.room_number,
+              pad_number: hallData.pad_number,
+              exam_date: hallData.exam_date,
+              start_time: hallData.start_time,
+              end_time: hallData.end_time,
+              // Add other fields as needed
+            };
+            examHalls.push(hall);
+          });
+      
+          return examHalls;
+        } catch (error) {
+          console.error('Error fetching exam halls from Firestore:', error);
+          throw error;
+        }
+      }
+      
+      async function getEligibleFacultiesFromFirestore() {
+        try {
+          const facultiesSnapshot = await db.collection('faculties').get();
+          const eligibleFaculties = [];
+      
+          facultiesSnapshot.forEach((doc) => {
+            const facultyData = doc.data();
+            // Assuming your Firestore documents have the fields: facultyName, facultyId, facultyDesignation
+            const faculty = {
+              facultyName: facultyData.facultyName,
+              facultyId: facultyData.facultyId,
+              facultyDesignation: facultyData.facultyDesignation,
+              // Add other fields as needed
+            };
+            eligibleFaculties.push(faculty);
+          });
+      
+          return eligibleFaculties;
+        } catch (error) {
+          console.error('Error fetching eligible faculties from Firestore:', error);
+          throw error;
+        }
+      }
+      
+      const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      };
+      
+      
+      // Function to assign faculties to exam halls
+      async function assignFacultiesToHalls() {
+        try {
+          const examHalls = await getExamHallsFromFirestore(); // Retrieve exam hall data
+          const faculties = await getEligibleFacultiesFromFirestore(); // Retrieve eligible faculties
+          console.log(examHalls);
+          console.log(faculties);
+          // Shuffle the list of eligible faculties randomly
+          shuffleArray(faculties);
+            console.log(faculties);
+          // Initialize counters for faculty invigilation counts
+          const facultyInvigilationCounts = {};
+      
+          for (const hall of examHalls) {
+            // Filter eligible faculties for this hall
+            console.log(hall);
+            const eligibleFaculties = faculties.filter((faculty) => {
+              const designation = faculty.facultyDesignation;
+              const invigilationCount = facultyInvigilationCounts[faculty.facultyId] || 0;
+              return (
+                (designation === 'Assistant Professor' && invigilationCount < 8) ||
+                (designation === 'Associate Professor' && invigilationCount < 5)
+              );
+            });
+            console.log(eligibleFaculties);
+            if (eligibleFaculties.length === 0) {
+              console.log(`No eligible faculties left for Hall ${hall.room_number}`);
+              continue; // Skip this hall if no eligible faculties are left
+            }
+      
+            // Randomly select a faculty from the eligible list
+            const assignedFaculty = eligibleFaculties.pop(); // Pop faculty from the end
+            facultyInvigilationCounts[assignedFaculty.facultyId] =
+              (facultyInvigilationCounts[assignedFaculty.facultyId] || 0) + 1;
+            console.log(assignedFaculty);
+            // Update Firestore with the assignment and increment invigilation count
+            await assignFacultyToHall(assignedFaculty, hall);
+          }
+      
+          console.log('Faculty assignment completed successfully');
+        } catch (error) {
+          console.error('Error assigning faculties to halls:', error);
+        }
+      }
+      
+      // Rest of your code...
+      
+      // Call the function to perform faculty assignment
+      assignFacultiesToHalls();
+      </script>
+</html>

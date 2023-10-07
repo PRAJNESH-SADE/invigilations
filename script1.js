@@ -5,7 +5,7 @@ const hashPassword = require('password-hash');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Initialize Firebase Admin SDK with your service account credentials
 const serviceAccount = require('./key.json');
@@ -38,6 +38,26 @@ app.get('/adminsignin', (req, res) => {
 
 app.get('/admindashboard', (req, res) => {
   res.sendFile(__dirname + "/admin/index.html");
+});
+
+app.get('/admindashboard1', (req, res) => {
+  res.sendFile(__dirname + "/admin/index1.html");
+});
+
+app.get('/admindashboard2', (req, res) => {
+  res.sendFile(__dirname + "/admin/index2.html");
+});
+
+app.get('/admindashboard3', (req, res) => {
+  res.sendFile(__dirname + "/admin/index3.html");
+});
+
+app.get('/admindashboard4', (req, res) => {
+  res.sendFile(__dirname + "/admin/index4.html");
+});
+
+app.get('/admindashboard5', (req, res) => {
+  res.sendFile(__dirname + "/admin/index5.html");
 });
 
 app.get('/dashboard', (req, res) => {
@@ -115,8 +135,7 @@ app.post('/adminsignup', (req, res) => {
 
 
             if (isPasswordValid) {
-                res.status(200).json({ message: 'Successful' });
-                // You can redirect the user here if needed.
+                res.redirect('/admindashboard');
             } else {
                 res.status(401).json({ error: 'Invalid credentials' });
             }
@@ -156,8 +175,72 @@ app.post('/submit-invigilation-form', async (req, res) => {
   }
 });
 
+// Assuming you already have your Express and Firestore setup
+
+// Add Faculty
+app.post('/facultysubmit', async (req, res) => {
+  try {
+    const {
+      departmentName,
+      courseName,
+      courseId,
+      facultyName,
+      facultyId,
+      facultyMail,
+      facultyDesignation
+    } = req.body;
+    
+    // Create a new faculty object
+    const facultyData = {
+      departmentName,
+      courseName,
+      courseId,
+      facultyName,
+      facultyId,
+      facultyMail,
+      facultyDesignation,
+      assignedCount: 0
+    };
+    
+    // Add the faculty data to Firestore
+    const result = await db.collection('faculties').add(facultyData);
+    
+    res.status(201).json({ message: 'Faculty information submitted successfully', id: result.id });
+  } catch (error) {
+    console.error('Error adding faculty:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+// // Function to reset invigilation counts for all faculty members
+// async function resetInvigilationCounts() {
+//   try {
+//     // Get all faculty members from Firestore
+//     const facultyCollection = db.collection('faculties');
+//     const facultySnapshot = await facultyCollection.get();
+
+//     // Iterate through faculty members and reset their counts
+//     const batch = db.batch();
+//     facultySnapshot.forEach((facultyDoc) => {
+//       const facultyRef = facultyCollection.doc(facultyDoc.id);
+//       batch.update(facultyRef, { assignedCount: 0 });
+//     });
+
+//     // Commit the batch update to Firestore
+//     await batch.commit();
+
+//     console.log('Invigilation counts reset for all faculty members.');
+//   } catch (error) {
+//     console.error('Error resetting invigilation counts:', error);
+//   }
+// }
+
+// // Call this function at the beginning of each academic year or as needed
+// resetInvigilationCounts();
+
 
 // Start the Express server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
